@@ -1,0 +1,50 @@
+This is a series of programs made my Max for a math project on optomization. The goal was that students would
+Come up with their own creative solutions to the same problem. You also had to prove that you had the best solution in a way to convince your classmates.
+Some approaches included google sheets, desmos, and trial and error.
+For this I only planned to write one program: Ratio Check. However I was at a horse show for the weekend with nothing to do so I came up with 2 more ways
+to solve it. This folder is now what that is. All files run indepenantly of any libraries only requiring python. They do have some nice formatting code at the
+bottom which is the same and uses the built in math library but that's about it.
+
+Now for a rundown of how each one works.
+
+Ratio Check------------------------------------------------------------------
+
+The initial idea for this came from me trying to use desmos but not knowing how.
+g_ratio is a number that works exacly as if it was 0-1 and shall be treated as such for the rest of this even though it doesn't go 0-1 because of some
+issues I was having with floats.
+
+g_ratio and a few other things are fed into a function where the mask and clips ratio is determined. 1-ratio=masks & ratio=clips
+
+then 2 temp lists are made which are then used in the rest oof the function. 
+
+Temp is what is finally what is retuned and temp2 is used to check against. when the counter counts up when its bigger than 0 the corrosponding count
+for clips is incrimented in temp2. temp2 is then checked to make shure it doesn't go past any guidelines assuming this passes temp's count is incrimented
+and count has 1 subtracted.
+
+If this fails the while loop breaks and temp is never set to the newer higher number.
+
+When temp is returned out of the function it's checked to see if its better than the current best
+if it is the best is changed
+
+Mega Brute-----------------------------------------------------------------
+
+essentially 2 nested for loops which check evertime if it doesn't work. it yes and the number is better as far as converted the output is changed. (bad explination just look at the code)
+it's a very simple program that runs about 33000000 times. And it's only like 20 lines
+
+Better Guess-----------------------------------------------------------------
+
+The theory behind this approach is relatively simple. now not for every problem but atleast for this one there is one peak. By that I mean it's essentially 2 lines that approach one central
+point of the best solution. In reality the lines would be at different slants however it looks something like the below diagram
+
+   Peak
+    /\
+   /  \
+  /   x\
+ /      \
+/        \
+
+if you had some point on the of the lines (x for example) you could check if you removed some clips and added masks if you get closer or further from the peak.
+This is relatively simple to understand from a human perspective however as of the time of writing I have not figured out how to get it to work correctly.
+If I can get this to work it would by far be the most optomized approach since it would also be the only one which doens't just brute force it.
+
+
