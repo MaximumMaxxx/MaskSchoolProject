@@ -1,28 +1,30 @@
-#DATA SHEET
-# Comfort Clips --------------------------------------------------
+# This program bassically attempts to find the peak or best possible solution by using binary search
 #
-# 2% Chance of Conversion
-# $0.20
-# 1/500 hours
-# 1.5inches^3
-# up to 11,500
-# 14g
+# Binary search is the fastest search algorithm that we know of and it's probably the most natural.
 #
-# Custom Cool Poggers Maks ---------------------------------------
+# In this implimentation Binary search you start with the two extreme values and the middle value.   
+# With those two extremes and the middle we can eliminate half of the number space.
+# 
+# This is because we know the value is approaching 306 as the final answer
+# possible example: 30.5.6, 305.7 305.8, 305.9, 306 , 305.9
+# another way to thing of it is 306 is the peak of a mountain and it goes down hill on all sides
+# 
+# the important part is since there's a smooth "slope" to our mountain i.e not 100.23, 63, 890
+# a cool thing we can do is eliminate half of all possible numbers using relatively few calculations
 #
-# 5% Chance of Conversion
-# $1.80
-# 1/125 hours
-# 1 inch^3s
-# up to 3500
-# 8g
-
-# So theoreticly if this program works it would by a very significantly
-# Large degree.
+# In the code we get rid of the extreme with a lower bound because it keeps the limits constantly moving up.
+#  
+# Once half of the number space is gone we just redo the same calculations except change the boundries to be our new space
+# and set a new middle.
+#
+# In the end the edges will approach or get closer and closer to the middle number and after a few cycles the two edge values will be equal
+# We then just take that result format and put it in the console.
 
 import math
+import time
+start_time = time.time()
 
-multiplier = 11500 # Number Of Combos tried. Set = to clips or masks(whichever is higher) to get the correct result
+multiplier = 11500 # Set = to clips or masks(whichever is higher) to get the correct result
 l_ratio = 0 # not 0-1 because flaots are dumb
 r_ratio = multiplier
 c_ratio = multiplier/2
@@ -32,7 +34,12 @@ Mask_stats = [0.05, 1.8 , 8 , 1 , 0.008] # Chance, Cost, Weight, Volume , Time
 Result = [0,0,0,0,0,0,0] # Converted, Masks, Clips, Price, Weight, Volume, Time
 
 
-#Stolen From Ratio Check because I didn't feel like rewriting anything
+# This block of code takes in a ratio and some other stuff, then calculates the best possible result with that ratio
+# 
+# example: a ratio of 50/50 would produce something like 2500 masks and 2500 clips with the idea being the ratio can change.
+# a ratio of 25/75 would be like 2500 masks 7500 clips.
+#
+
 def ratio_check(ratio,multiplier,limitor,MStats,CStats):
     Temp = [0,0,0,0,0,0,0] # Converted, Masks, Clips, Price, Weight, Volume, Time
     Temp2 = [0,0,0,0,0,0,0] # Converted, Masks, Clips, Price, Weight, Volume, Time
@@ -123,7 +130,11 @@ while True:
         break
     center = ratio_check(c_ratio,multiplier,Limits,Mask_stats,Clip_stats) 
 
+# Formatting code to give a nice output
+
+
 print("-----------------------")
+print("In ", time.time() - start_time, " seconds these results were calculated")
 print ("Converterd: ",center[0])
 print ("Mask Count: ",center[1], " ",math.floor((center[1]/Limits[1])*100),"%")
 print ("Clip Count: ",center[2], " ",math.floor((center[2]/Limits[2])*100),"%")
