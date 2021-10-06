@@ -1,3 +1,8 @@
+<h1>Max's Mask Code</h1>
+
+
+
+
 This is a series of programs made my Max for a math project on optomization. The goal was that students would
 Come up with their own creative solutions to the same problem. You also had to prove that you had the best solution in a way to convince your classmates.
 Some approaches included google sheets, desmos, and trial and error.
