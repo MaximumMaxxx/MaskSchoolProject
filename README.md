@@ -14,10 +14,10 @@ How we got here: Initially I attempted to do this project in desmos however my l
 The one key thing I got from that was the idea of expressing the number of masks and clips as simply a ratio between the two numbers.
 In desmos this ratio was used for graphing however in the final solution it's used instead to feed into a function which does a bunch of calulations to find the maximum that that ratio can produce while staying in the limits.
 
-My First Crack at this problem(Ratio Check) produced the aforementioned function. In it I loop through every different ratio between all clips and no clips. 
+My First Crack at this problem (Ratio Check) produced the aforementioned function. In it I loop through every different ratio between all clips and no clips. 
 For some reason it runs faster than a similar but different implementation and I'm not sure why. 
 
-My Second Attempt produced mega brute the easiest to understand but the least interesting and slowest of all the implementations. It bassicly just checks 33 million combos to see if they work. It's bad and dumb and slow and for that reason I dislike it. The code is easy to understand though so I guess that's a plus.
+My Second Attempt produced mega brute the easiest to understand but the least interesting and slowest of all the implementations. It bassicaly just checks 33 million combos to see if they work. It's bad and dumb and slow and for that reason I dislike it. The code is easy to understand though so I guess that's a plus.
 
 After my disapointment at my second solution I came up with search algo. Now the previous apporaches took a few minutes to work but seach algo is built different. 
 It runs in .5 - 5 seconds depending on which computer I use. 
