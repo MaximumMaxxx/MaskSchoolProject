@@ -1,6 +1,6 @@
 <h1>Max's Mask Code</h1>
 
-Repl If you want to run it in your browser: https://replit.com/@MaxwellWindland/Max-s-Magnificent-Mask-Caclculating-Code-#README.md
+Repl: If you want to run it in your browser: https://replit.com/@MaxwellWindland/Max-s-Magnificent-Mask-Caclculating-Code-#README.md
 
 
 This is a series of programs made my Max for a math project on optomization. The goal was that students would
