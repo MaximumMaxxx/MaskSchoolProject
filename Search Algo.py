@@ -20,8 +20,11 @@
 # In the end the edges will approach or get closer and closer to the middle number and after a few cycles the two edge values will be equal
 # We then just take that result format and put it in the console.
 
+# Imports libraries (Pieces of code other people wrote for you) that are used for formatting the final output and calculating run time respectively.
 import math
 import time
+
+# Sets the starting time of the program. This is later used to say how long it took to run.
 start_time = time.time()
 
 multiplier = 11500 # Set = to clips or masks(whichever is higher) to get the correct result
@@ -130,15 +133,14 @@ while True:
         break
     center = ratio_check(c_ratio,multiplier,Limits,Mask_stats,Clip_stats) 
 
-# Formatting code to give a nice output
-
+# Takes the final output from the above loop and converts it into a nice looking output.
 
 print("-----------------------")
-print("In ", time.time() - start_time, " seconds these results were calculated")
-print ("Converterd: ",center[0])
-print ("Mask Count: ",center[1], " ",math.floor((center[1]/Limits[1])*100),"%")
-print ("Clip Count: ",center[2], " ",math.floor((center[2]/Limits[2])*100),"%")
-print ("Money Spent: ",center[3], " ",math.floor((center[3]/Limits[3])*100),"%")
-print ("Weight: ",center[4], " ",math.floor((center[4]/Limits[4])*100),"%")
-print ("Volume Used: ",center[5], " ",math.floor((center[5]/Limits[5])*100),"%")
-print ("Time Used: ",center[6], " ", math.floor((center[6]/Limits[6])*100),"%")
+print("In ", time.time() - start_time, " seconds these results were calculated") # Says in the console how long it took to run
+print ("Converterd: ",center[0]) # Says the amount of people who are now consistant mask wearers
+print ("Mask Count: ",center[1], " ",math.floor((center[1]/Limits[1])*100),"%") # Says how many masks would be used
+print ("Clip Count: ",center[2], " ",math.floor((center[2]/Limits[2])*100),"%") # Says how many clips would be used
+print ("Money Spent: ",center[3], " ",math.floor((center[3]/Limits[3])*100),"%") # Says how much money would be used
+print ("Weight: ",center[4], " ",math.floor((center[4]/Limits[4])*100),"%") # Says how much weight would be used
+print ("Volume Used: ",center[5], " ",math.floor((center[5]/Limits[5])*100),"%") # Says how much storage space would be used
+print ("Time Used: ",center[6], " ", math.floor((center[6]/Limits[6])*100),"%") # Says how much time would be used
