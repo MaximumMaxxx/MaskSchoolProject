@@ -20,6 +20,10 @@
 # In the end the edges will approach or get closer and closer to the middle number and after a few cycles the two edge values will be equal
 # We then just take that result format and put it in the console.
 
+
+# ------------------------------------------------------------------------------------------------------------
+
+
 # Imports libraries (Pieces of code other people wrote for you) that are used for formatting the final output and calculating run time respectively.
 import math
 import time
