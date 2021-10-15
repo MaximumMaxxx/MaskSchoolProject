@@ -112,11 +112,21 @@ def ratio_check(ratio,multiplier,limitor,MStats,CStats):
 
     return Temp
 
+# Executes the search logic
 
+
+# Defines the left right and center for search space
 left=ratio_check(0,multiplier,Limits,Mask_stats,Clip_stats) # All Mask
 right=ratio_check(multiplier,multiplier,Limits,Mask_stats,Clip_stats) # all clips
 center=ratio_check(multiplier/2,multiplier,Limits,Mask_stats,Clip_stats) # 50/50
 
+# Explination of this loop
+# -----------------------------------------------------------------------------------------
+# 1. Checks whether left or right is the bigger number. This bassically establishes which direction the correct solution is in.
+# 2. Sets the hower number to the center number. This narrows down the seachable area by 50%
+# 3. Re calculates the center based on the new bounds of the search area
+# 4. Repeats
+# 5. If neither number is bigger than we have the final sollution. We know this is true because the edges are approaching the final answer. Therefore if we have the edges equal than we have finshed our approach
 while True:
     if left[0] > right[0]:
         right = center
