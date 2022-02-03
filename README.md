@@ -10,4 +10,4 @@ Some approaches included google sheets, desmos, and trial and error.
 I may start using this as a good starting script for varoius langauges (like the C version) however that is undecided. 
 Anything other than the python solutions will be minimally commented so keep that in mind.
 
-For the python version there a beginning aimed [writeup here](https://docs.google.com/document/d/1rjmOgjyNKGLaT6Jo8OXFZXzivwWaMt2UDefeT45CoFs/edit?usp=sharing)
+For the python version there a beginner/complete novice aimed [writeup here](https://docs.google.com/document/d/1rjmOgjyNKGLaT6Jo8OXFZXzivwWaMt2UDefeT45CoFs/edit?usp=sharing)
