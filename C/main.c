@@ -22,7 +22,7 @@ typedef struct ItemStats {
 CalcStats evaluate(double limits[], double ratio, struct ItemStats maskStats, struct ItemStats calcStats, int multiplier);
 double getStat(struct CalcStats *ItemStats, int i);
 
-double limits[] = {3500,11500,6000,180000,18000,36}; // Money, Space, Weight, Time
+double limits[] = {3500,11500,6000,180000,18000,36}; // Masks, Clip, Money, Space, Weight, Time
 
 CalcStats evaluate(double limits[], double ratio, struct ItemStats maskStats, struct ItemStats clipStats, int multiplier) {
     double counts[] = {};
@@ -98,27 +98,6 @@ double getStat(struct CalcStats *ItemStats, int i) {
     return 0;
 }
 
-/*
-int main() {
-    ItemStats MaskStats;
-    MaskStats.change = 0.05;
-    MaskStats.price = 1.8;
-    MaskStats.weight = 8;
-    MaskStats.space = 1;
-    MaskStats.time = 0.008;
-
-    ItemStats ClipStats;
-    ClipStats.change = 0.02;
-    ClipStats.price = 0.2;
-    ClipStats.weight = 14;
-    ClipStats.space = 1.5;
-    ClipStats.time = 0.002;
-
-    printf("%f\n",evaluate(limits,100,MaskStats,ClipStats,100).maskers);
-    printf("%f\n",evaluate(limits,100,MaskStats,ClipStats,200).maskers);
-}
-*/
-
 int main() {
     clock_t begin = clock();
     const int multiplier = 11500;
@@ -167,16 +146,17 @@ int main() {
         center = evaluate(limits,center_ratio,MaskStats,ClipStats,multiplier);
         printf("%f\n",center.maskers);
     }
+    printf("\n\n");
     clock_t end = clock();
     printf("Calculated in %f seconds\n",(double)(end - begin) / CLOCKS_PER_SEC);
     printf("----------------------------------------------------------------\n");
-    printf("Converted: %f %f%%\n", center.maskers, center.maskers/306);
-    printf("Masks:     %f %f%%\n", (double)center.masks, center.maskers/limits[0]);
-    printf("Clips:     %f %f%%\n", (double)center.clips, center.clips/limits[1]);
-    printf("Money:     %f %f%%\n", center.money, center.money/limits[2]);
-    printf("Weight:    %f %f%%\n", center.weight, center.weight/limits[3]);
-    printf("Volume:    %f %f%%\n", center.space, center.space/limits[4]);
-    printf("Time:      %f %f%%\n", center.time, center.time/limits[5]);
+    printf("New Maskers: %f\n", (double)center.maskers);
+    printf("Masks:       %f %f%%\n", (double)center.masks, (center.masks/limits[0])*100.0);
+    printf("Clips:       %f %f%%\n", (double)center.clips, (center.clips/limits[1])*100.0);
+    printf("Money:       %f %f%%\n", center.money, (center.money/limits[2])*100);
+    printf("Weight:      %f %f%%\n", center.weight, (center.weight/limits[3])*100);
+    printf("Volume:      %f %f%%\n", center.space, (center.space/limits[4])*100);
+    printf("Time:        %f %f%%\n", center.time, (center.time/limits[5])*100);
 
 
     return 0;
