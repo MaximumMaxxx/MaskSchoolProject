@@ -22,12 +22,17 @@
 # 5:40
 
 import math
+import matplotlib.pyplot as plt
+import time
+import matplotlib
 
+start_time = time.time()
+
+
+datapoints = []
 Counter = 0 
 
 # This array is a bunch of changeable statistics you can use to mess around with the program and try different combonations
-
-
 Limits = [0,3500,11500,6000,180000,18000,36]    #Dummy, Masks, Clips, Price, Weight, Volume, Time | Dummy exists because of a for loop later. dummy can be whatever you want and it shouldn't break anything
 Clip_stats = [0.02, 0.2 , 14 , 1.5 , 0.002] # Chance, Cost, Weight, Volume , Time
 Mask_stats = [0.05, 1.8 , 8 , 1 , 0.008] # Chance, Cost, Weight, Volume , Time
@@ -65,12 +70,34 @@ for i in range(Limits[1]): # For i in range masks
                 break
 
         if not flag and Result[0] < Temp[0]:
-            Result=Temp
+            Result=Temp2
+        Temp2 = Temp.copy()
+        datapoints.append([Temp2[0],Temp2[1],Temp2[2]])
         if flag:
             break #This if removes 11million calculations. Optomization poggers
 
 #The math.floors here only serve astetic purposes
 
+Zs = [item[0] for item in datapoints]
+Xs = [item[1] for item in datapoints]
+Ys = [item[2] for item in datapoints]
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+surf = ax.plot_trisurf(Xs, Ys, Zs, cmap=matplotlib.cm.get_cmap("plasma"), linewidth=0)
+fig.colorbar(surf)
+
+ax.set_xlabel('Masks')
+ax.set_ylabel('Clips')
+ax.set_zlabel('Permenant Maks Wearers')
+
+fig.tight_layout()
+
+fig.savefig("3d.png")
+
+
+print(f"Only took like {time.time() - start_time} seconds")
 print("-----------------------")
 print ("Converterd: ",Result[0])
 print ("Mask Count: ",Result[1], " ",math.floor((Result[1]/Limits[1])*100),"%")
